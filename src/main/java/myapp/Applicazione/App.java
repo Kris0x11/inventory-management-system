@@ -2,6 +2,7 @@ package myapp.Applicazione;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.application.Application;
@@ -12,7 +13,11 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         
         GUI gui = new GUI();
-
+     // Imposta la priorità di crescita verticale
+        VBox.setVgrow(gui.getTableView(), Priority.ALWAYS);
+     // Imposta dimensioni fisse o minime
+        gui.getTableView().setPrefHeight(400); // Imposta un'altezza fissa
+        gui.getTableView().setMinHeight(200);  // Impedisci che diventi "sottile"
         Button stampaart = new Button("Visualizza articoli");
         Button inserisci = new Button("Inserisci articoli");
 
@@ -20,7 +25,7 @@ public class App extends Application {
         layout.getChildren().addAll(stampaart, inserisci);
 
         stampaart.setOnAction(e -> {
-            gui.refresh(); // ← ORA FUNZIONA BENISSIMO
+            
 
             // evita duplicazioni
             if (!layout.getChildren().contains(gui.getTableView())) {

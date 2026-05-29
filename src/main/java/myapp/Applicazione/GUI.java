@@ -33,14 +33,14 @@ public class GUI {
     private Button excel;
 
     private ObservableList<Articolo> articoli = FXCollections.observableArrayList();
-    // preventivo mantiene righe (RigaFattura)
+   
     private ObservableList<RigaFattura> righePreventivo = FXCollections.observableArrayList();
 
     public GUI() {
         configuraTabella();
         delete();
         aggiorna();
-        tabellaExcel(); // prepara il bottone Excel (apre dialog preventivo)
+        tabellaExcel(); 
     }
 
     // ---------- PREVENTIVO / EXCEL DIALOG ----------
@@ -390,15 +390,14 @@ public class GUI {
         stage.setTitle("Inserisci Articolo");
         stage.setScene(scene);
         stage.show();
+        tableView.refresh();
+        
     }
 
     public VBox getLayout() {
         VBox layout = new VBox(10);
 
-        Button apriInserisci = new Button("Inserisci nuovo");
-        apriInserisci.setOnAction(e -> inserisci());
-
-        layout.getChildren().addAll(tableView, apriInserisci, delete, aggiorna, excel);
+        layout.getChildren().addAll(tableView, delete, aggiorna, excel);
         return layout;
     }
 

@@ -19,9 +19,9 @@ public class Articolo {
         this.codiceArticolo = codiceArticolo;
         this.nome = nome;
         this.descrizione = descrizione;
-        setPrezzo(prezzo);
-        setQuantita(quantita);
-        setQuantitaImpegnata(quantitaImpegnata);
+        this.prezzo=prezzo;
+        this.quantita=quantita;
+        this.quantitaImpegnata=quantitaImpegnata;
     }
 
     public Articolo(String codiceArticolo, String nome, String descrizione,
